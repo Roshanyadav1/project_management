@@ -27,7 +27,11 @@ function Login() {
                     alert('User not exist');
                 }
             }
-        } else {
+            else {
+                alert('User not found');
+            }
+        }
+        else {
             alert('Please fill all the fields');
         }
     }
