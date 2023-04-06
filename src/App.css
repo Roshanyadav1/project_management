@@ -1,3 +1,16 @@
+/* full height of view port in dynamic way  */
+
+.container {
+  height: 100vh;
+}
+
+.center_flex {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 form input {
   width: 100%;
   padding: 12px 20px;
@@ -28,7 +41,7 @@ form button {
 }
 
 ._centered {
-  display: grid;
+  min-width: 20rem;
   justify-content: center;
   align-items: center;
 }
@@ -57,7 +70,6 @@ form button {
 
 ._flex_item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 10px 0;
@@ -155,4 +167,76 @@ input[type="checkbox"] {
   .w-30 {
     width: 100%;
   }
+}
+
+/* extra workload  */
+._select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #379de0;
+  -webkit-transition: 0.5s;
+  transition: 0.1s ease-in-out;
+  outline: none;
+  display: grid;
+  border-radius: 5px;
+}
+
+
+._responsive_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+
+._responsive_grid_item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+
+._resImage {
+  width: 21%;
+  aspect-ratio: 1/2;
+  /* shadow in img  */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 1rem;
+}
+
+._sidebar {
+  min-width: 240px;
+  background: #58a6d75e;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  min-height: 95vh;
+}
+
+._sidebar_item {
+  padding: 1rem;
+  border-radius: 5px;
+  border-color: #379de0;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+._sidebar_heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #379de0;
+}
+
+._sidebarAndContent {
+  display: flex;
+  min-height: 100%;
+  margin: 0.2rem;
 }

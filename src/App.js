@@ -91,13 +91,24 @@
 // export default App;
 
 
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login'
+import SignIn from './SignIn';
+import Home from './Home';
 
 
 const App = () => {
   return (
-    <Login />
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignIn />} />
+        <Route path="/home/*" element={<Home />} />
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
