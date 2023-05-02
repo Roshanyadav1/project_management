@@ -61,7 +61,8 @@ const HomeLayout = () => {
                                 <div className='_flex_item'>
                                     <img className='_resImage' src={item.poster} alt={item.title} />
                                     <div>
-                                        <h3>{item?.title}</h3>
+                                        here
+                                        {/* <h3>{item?.title}</h3>
                                         <p>{item?.description}</p>
                                         General : {item?.genre}
                                         <br />
@@ -71,7 +72,7 @@ const HomeLayout = () => {
                                         <br />
                                         Production Company : {item?.productionCompany}
                                         <br />
-                                        Writers : {item?.writers}
+                                        Writers : {item?.writers} */}
                                     </div>
                                 </div>
                             </div>
