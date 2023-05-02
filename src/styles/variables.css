@@ -10,7 +10,9 @@
 
 
     /* grid system  */
+    --column: initial;
     --gutter: .3em;
+
 }
 
 body {
