@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import './App.css';
-import instance from './interceptor';
+import instance from './services/interceptor';
+import { deteleTask } from './helpers/tasks';
+
+const Card = lazy(() => import('./components/Card.jsx'));
 
 function App() {
 
@@ -38,10 +41,8 @@ function App() {
       })
   }
 
-  const deteleTask = async (id) => {
-    await instance.post('/api/delete', {
-      id
-    })
+  const removeTask = async (id) => {
+    await deteleTask(id)
       .then((res) => {
         setTask(task.filter((item) => item.id !== id));
       }).catch((err) => {
@@ -52,35 +53,37 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit} className='_centered' >
-        <h1>Hello World !</h1>
-        <label htmlFor="name">Enter task</label>
-        <input onChange={(e) => setName(e.target.value)} type="text" name="name" />
-        <br />
-        <label>Description</label>
-        <input type="text" name="text" onChange={(e) => {
-          setDescription(e.target.value);
-        }} />
 
-        <button type="submit">Submit</button>
-      </form>
+      <div className="form_container _flex _centered ">
+        <form onSubmit={handleSubmit} className='_centered' >
+          <h1 className="gradiant_heading" >Hello World !</h1>
+          <label htmlFor="name">Enter task</label>
+          <input onChange={(e) => setName(e.target.value)} type="text" name="name" />
+          <br />
+          <label>Description</label>
+          <input type="text" name="text" onChange={(e) => {
+            setDescription(e.target.value);
+          }} />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
 
       <h2 className='gradiant_heading _centered '>Task List</h2>
       <div className='_flex _start _flex_wrap outline_shine'>
-        {task.map((item, index) => {
-          return (
-            <div key={index} className='glass_shades w-30 box_shadow'>
-              <h3 className='light_heading' >{item.name}</h3>
-              <div >
-                <p>{item.description}</p>
-                <button onClick={() => deteleTask(item.id)} className="delete_task" >Delete task</button>
-              </div>
-            </div>
-          )
-        })}
-        {
-          task.length === 0 && <h3 className='light_heading' >No task found</h3>
-        }
+        <Suspense fallback={
+          <h2 className='_centered '>Loading...</h2>
+        } >
+          {task.map((item, index) => {
+            return (
+              <Card key={index} item={item} deteleTask={removeTask} />
+            )
+          })}
+          {
+            task.length === 0 && <h3 className='light_heading' >No task found</h3>
+          }
+        </Suspense>
+
 
       </div>
 
