@@ -73,6 +73,12 @@ form button {
   color: #fff;
 }
 
+.des_heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
 .gradiant_heading {
   background: var(--gradient-color);
   -webkit-background-clip: text;
