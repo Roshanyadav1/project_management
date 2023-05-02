@@ -10,7 +10,6 @@ export const todo = createSlice({
         setTodo: (state, action) => {
             state.todo = action.payload;
         },
-
     },
 });
 

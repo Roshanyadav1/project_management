@@ -1,24 +1,16 @@
 import React, { useState, Suspense, lazy } from 'react'
 import instance from '../services/interceptor';
 import { deteleTask } from '../helpers/tasks';
+import { useGetTodoQuery } from '../services/authServices';
 
 const Card = lazy(() => import('../components/Card.jsx'));
 
 function Todos() {
 
-    const [task, setTask] = useState([]);
+    const { data: task, isSuccess, refetch } = useGetTodoQuery();
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-
-
-    React.useEffect(() => {
-        instance.get('/')
-            .then((res) => {
-                setTask(res.data);
-            }).catch((err) => {
-                setTask([]);
-            })
-    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +25,7 @@ function Todos() {
             description,
         })
             .then((res) => {
-                setTask([...task, { name, description }]);
+                refetch();
                 setName('');
                 setDescription('');
             }).catch((err) => {
@@ -44,7 +36,7 @@ function Todos() {
     const removeTask = async (id) => {
         await deteleTask(id)
             .then((res) => {
-                setTask(task.filter((item) => item.id !== id));
+                refetch();
             }).catch((err) => {
                 alert("Something went wrong")
             })
@@ -60,7 +52,7 @@ function Todos() {
                     <input value={name} required onChange={(e) => setName(e.target.value)} type="text" name="name" />
                     <br />
                     <label>Description</label>
-                    <input vaue={description} required type='text' name="text" onChange={(e) => {
+                    <input value={description} required type='text' name="text" onChange={(e) => {
                         setDescription(e.target.value);
                     }} />
 
@@ -74,13 +66,15 @@ function Todos() {
                     <Suspense fallback={
                         <h2 className='_centered '>Loading...</h2>
                     } >
-                        {task.map((item, index) => {
+                        {isSuccess && task.map((item) => {
                             return (
-                                <Card key={index} item={item} deteleTask={removeTask} />
+                                <div key={item.id} >
+                                    <Card item={item} deteleTask={removeTask} />
+                                </div>
                             )
                         })}
                         {
-                            task.length === 0 && <h3 className='light_heading' >No task found</h3>
+                            task?.length === 0 && <h3 className='light_heading' >No task found</h3>
                         }
                     </Suspense>
 

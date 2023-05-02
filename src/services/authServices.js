@@ -1,6 +1,7 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { configUrl } from "../helpers/configUrl";
+import { setTodo } from "../redux/slices/todo";
 
 // Define a service using a base URL and expected endpoints
 export const authServices = createApi({
@@ -19,8 +20,35 @@ export const authServices = createApi({
         url: configUrl.getTodo,
         method: "GET",
       }),
-      invalidatesTags: [{ type: 'Tasks' }]
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(setTodo(data));
+        } catch (err) {
+          console.error("Failed to fetch todos: ", err);
+        }
+      }
     }),
+
+    addTodo: build.mutation({
+      query: (body) => ({
+        url: configUrl.insert,
+        method: "POST",
+        params: body,
+      }),
+    }),
+
+    deleteTodo: build.mutation({
+      query: (id) => ({
+        url: configUrl.delete,
+        method: "DELETE",
+        params: id,
+      }),
+    }),
+
+
+
+
   }),
 });
 

@@ -48,14 +48,12 @@ form button {
 
 .outline_shine {
   background: rgba(48, 75, 183, 0.652);
-  backdrop-filter: blur(10px);
   border-radius: 10px;
 }
 
 
 .glass_shades {
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
   margin: 1rem;

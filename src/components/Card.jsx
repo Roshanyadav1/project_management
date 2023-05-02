@@ -1,9 +1,9 @@
 import React from "react";
 
-const Card = ({ key, item, deteleTask }) => {
+const Card = ({ item, deteleTask }) => {
 
     return (
-        <div key={key} className='glass_shades box_shadow'>
+        <div className='glass_shades box_shadow'>
             <h3 className='light_heading' >{item.name}</h3>
             <div >
                 <p>{item.description}</p>
