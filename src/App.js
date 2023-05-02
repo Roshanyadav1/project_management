@@ -61,7 +61,7 @@ function App() {
           <input value={name} required onChange={(e) => setName(e.target.value)} type="text" name="name" />
           <br />
           <label>Description</label>
-          <input vaue={description} required type="text" name="text" onChange={(e) => {
+          <input vaue={description} required type='text' name="text" onChange={(e) => {
             setDescription(e.target.value);
           }} />
 
@@ -69,21 +69,23 @@ function App() {
         </form>
       </div>
 
-      <h2 className='gradiant_heading _centered '>Task List</h2>
-      <div className='_grid outline_shine'>
-        <Suspense fallback={
-          <h2 className='_centered '>Loading...</h2>
-        } >
-          {task.map((item, index) => {
-            return (
-              <Card key={index} item={item} deteleTask={removeTask} />
-            )
-          })}
-          {
-            task.length === 0 && <h3 className='light_heading' >No task found</h3>
-          }
-        </Suspense>
+      <div className='card_control'>
+        <h2 className='gradiant_heading _centered '>Task List</h2>
+        <div className='_grid outline_shine'>
+          <Suspense fallback={
+            <h2 className='_centered '>Loading...</h2>
+          } >
+            {task.map((item, index) => {
+              return (
+                <Card key={index} item={item} deteleTask={removeTask} />
+              )
+            })}
+            {
+              task.length === 0 && <h3 className='light_heading' >No task found</h3>
+            }
+          </Suspense>
 
+        </div>
       </div>
 
     </div>

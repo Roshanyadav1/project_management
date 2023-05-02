@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/grid.css';
 import './styles/flex.css';
+import './styles/variables.css';
 import './App.css';
 
 
