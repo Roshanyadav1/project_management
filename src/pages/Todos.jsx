@@ -48,13 +48,15 @@ function Todos() {
             <div className="form_container ">
                 <form onSubmit={handleSubmit} className='_centered' >
                     <h1 className="gradiant_heading" >Task Manager</h1>
-                    <label htmlFor="name">Enter task</label>
-                    <input value={name} required onChange={(e) => setName(e.target.value)} type="text" name="name" />
+                    <label htmlFor="name">Enter task
+                        <input value={name} required onChange={(e) => setName(e.target.value)} type="text" name="name" />
+                    </label>
                     <br />
-                    <label>Description</label>
-                    <input value={description} required type='text' name="text" onChange={(e) => {
-                        setDescription(e.target.value);
-                    }} />
+                    <label>Description
+                        <input value={description} required type='text' name="text" onChange={(e) => {
+                            setDescription(e.target.value);
+                        }} />
+                    </label>
 
                     <button type="submit">Submit</button>
                 </form>
