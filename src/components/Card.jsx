@@ -3,7 +3,7 @@ import React from "react";
 const Card = ({ key, item, deteleTask }) => {
 
     return (
-        <div key={key} className='glass_shades w-30 box_shadow'>
+        <div key={key} className='glass_shades box_shadow'>
             <h3 className='light_heading' >{item.name}</h3>
             <div >
                 <p>{item.description}</p>

@@ -8,7 +8,6 @@ const Card = lazy(() => import('./components/Card.jsx'));
 function App() {
 
   const [task, setTask] = useState([]);
-
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
@@ -36,6 +35,8 @@ function App() {
     })
       .then((res) => {
         setTask([...task, { name, description }]);
+        setName('');
+        setDescription('');
       }).catch((err) => {
         alert("Something went wrong")
       })
@@ -53,15 +54,14 @@ function App() {
 
   return (
     <div className="App">
-
-      <div className="form_container _flex _centered ">
+      <div className="form_container ">
         <form onSubmit={handleSubmit} className='_centered' >
-          <h1 className="gradiant_heading" >Hello World !</h1>
+          <h1 className="gradiant_heading" >Task Manager</h1>
           <label htmlFor="name">Enter task</label>
-          <input onChange={(e) => setName(e.target.value)} type="text" name="name" />
+          <input value={name} required onChange={(e) => setName(e.target.value)} type="text" name="name" />
           <br />
           <label>Description</label>
-          <input type="text" name="text" onChange={(e) => {
+          <input vaue={description} required type="text" name="text" onChange={(e) => {
             setDescription(e.target.value);
           }} />
 
@@ -70,7 +70,7 @@ function App() {
       </div>
 
       <h2 className='gradiant_heading _centered '>Task List</h2>
-      <div className='_flex _start _flex_wrap outline_shine'>
+      <div className='_grid outline_shine'>
         <Suspense fallback={
           <h2 className='_centered '>Loading...</h2>
         } >
@@ -84,7 +84,6 @@ function App() {
           }
         </Suspense>
 
-
       </div>
 
     </div>
@@ -92,31 +91,6 @@ function App() {
 }
 
 export default App;
-
-
-// import React from 'react'
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Login from './Login'
-// import SignIn from './SignIn';
-// import Home from './Home';
-
-
-// const App = () => {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/signup" element={<SignIn />} />
-//         <Route path="/home/*" element={<Home />} />
-
-//       </Routes>
-//     </BrowserRouter>
-//   )
-// }
-
-
-// export default App
 
 
 

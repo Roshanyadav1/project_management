@@ -1,0 +1,27 @@
+._flex {
+    display: flex;
+}
+
+._start {
+    justify-content: flex-start;
+}
+
+._end {
+    justify-content: flex-end;
+}
+
+._centered {
+    justify-content: center;
+    align-items: center;
+}
+
+._flex_wrap {
+    flex-wrap: wrap;
+}
+
+._flex_item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}

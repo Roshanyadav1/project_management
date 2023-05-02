@@ -1,4 +1,19 @@
-/* full height of view port in dynamic way  */
+:root {
+  --primary-color: #379de0;
+  --secondary-color: #9d1f1f;
+  --third-color: #fff;
+  --fourth-color: #000;
+
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+  --gradient-color: linear-gradient(#379de0, #9d1f1f);
+
+  /* grid system  */
+  --gutter: .3em;
+}
+
+body {
+  font-size: calc(90% * var(--font-size-scale, 1));
+}
 
 .container {
   height: 100vh;
@@ -16,7 +31,7 @@ form input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 1px solid #379de0;
+  border: 1px solid var(--primary-color);
   -webkit-transition: 0.5s;
   transition: 0.1s ease-in-out;
   outline: none;
@@ -25,13 +40,13 @@ form input {
 
 
 form input:focus {
-  border: 1px solid #379de0;
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
 }
 
 form button {
   background-color: #379de0;
-  color: white;
+  color: var(--third-color);
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -42,46 +57,17 @@ form button {
 
 .form_container {
   margin: auto;
-  width: 30%;
-  padding: 1rem;
-  background: #fff;
+  max-width: fit-content;
+  padding: 1rem 3rem;
+  background: var(--third-color);
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-._centered {
-  min-width: 20rem;
-  justify-content: center;
-  align-items: center;
-}
-
-._flex {
-  display: flex;
-}
-
-._start {
-  justify-content: flex-start;
-}
-
-._end {
-  justify-content: flex-end;
-}
-
-._flex_wrap {
-  flex-wrap: wrap;
 }
 
 .outline_shine {
   background: rgba(48, 75, 183, 0.652);
   backdrop-filter: blur(10px);
   border-radius: 10px;
-}
-
-._flex_item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 10px 0;
 }
 
 
@@ -98,7 +84,7 @@ form button {
 }
 
 .box_shadow {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 var(--box-shadow-color);
 }
 
 .light_heading {
@@ -108,14 +94,14 @@ form button {
 }
 
 .gradiant_heading {
-  background: -webkit-linear-gradient(#379de0, #9d1f1f);
+  background: var(--gradient-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .delete_task {
-  background: #9d1f1f;
-  color: #fff;
+  background: var(--secondary-color);
+  color: var(--third-color);
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
@@ -126,126 +112,10 @@ form button {
 
 ._input_update,
 ._input_update:focus {
-  background-color: #379de0;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--third-color);
   padding: 5px 10px;
   margin: inherit;
   border: none;
   cursor: pointer;
-}
-
-/* add ascent color in checkbox*/
-/* .checkbox[type="checkbox"]:checked+label:after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 2px;
-  height: 2px;
-  border: 2px solid #fff;
-  border-top: none;
-  border-right: none;
-  transform: rotate(45deg);
-}
-
-*/
-input[type="checkbox"] {
-  width: 15px;
-  height: 15px;
-  position: relative;
-  top: 2px;
-
-}
-
-
-/* add media query according to tab , laptop and mobile */
-
-@media screen and (max-width: 1024px) {
-  .w-30 {
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .w-30 {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .w-30 {
-    width: 100%;
-  }
-}
-
-/* extra workload  */
-._select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #379de0;
-  -webkit-transition: 0.5s;
-  transition: 0.1s ease-in-out;
-  outline: none;
-  display: grid;
-  border-radius: 5px;
-}
-
-
-._responsive_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1rem;
-  padding: 1rem;
-}
-
-._responsive_grid_item {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card {
-  padding: 1rem;
-  border-radius: 5px;
-}
-
-
-._resImage {
-  width: 21%;
-  aspect-ratio: 1/2;
-  /* shadow in img  */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  margin: 0 1rem;
-}
-
-._sidebar {
-  min-width: 240px;
-  background: #58a6d75e;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  min-height: 95vh;
-}
-
-._sidebar_item {
-  padding: 1rem;
-  border-radius: 5px;
-  border-color: #379de0;
-  margin: 1rem 0;
-  cursor: pointer;
-}
-
-._sidebar_heading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #379de0;
-}
-
-._sidebarAndContent {
-  display: flex;
-  min-height: 100%;
-  margin: 0.2rem;
 }
