@@ -1,14 +1,15 @@
 import React from "react";
-import Todos from './pages/Todos.jsx'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Todos from './pages/Todos.jsx'
+import Portfolio from "./pages/Portfolio.jsx";
 
 
 const App = () => {
   return (
     <Router>
-      ookkk
       <Routes>
         <Route path="/" element={<Todos />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </Router>
   );
