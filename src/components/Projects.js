@@ -1,9 +1,8 @@
 import { Container, Row, Col, Tab } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
+import projImg1 from "../assets/adsprint.png";
+import projImg2 from "../assets/bharosa.png";
+import projImg3 from "../assets/collage.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -11,35 +10,23 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Singaji Central (collage management)",
+      description: "In our college, we are creating an online system where a student can take Admission and all the functionality of our college can be automated by the application. ",
       imgUrl: projImg3,
+      url: 'https://admin.ssism.org/login'
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Bharosa Agri Tech",
+      description: "A Portal where we have all our farmers, their land & crop information, can verify their basic info & land geotag info from the portal and generate the reports for their land, which will help to get the loans from Bank",
       imgUrl: projImg2,
+      url: 'https://bharosa.farm/'
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
+      title: "Ad-Sprint",
+      description: "It offers news agencies a platform to post ads, simplifying the advertising process with a variety of types of advertising, including classifieds, obituaries, displays, as well as audited and unaudited financial reports.",
+      imgUrl: projImg1,
+      url: 'https://wfs.adsprint.in'
+    }
   ];
 
   return (
@@ -51,7 +38,7 @@ export const Projects = () => {
               {({ isVisible }) =>
                 <div>
                   <h2>Projects</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  <p>Passionate about staying up-to-date with the latest developments in front-end technologies, and actively engaged in the development community through forums, blogs, and open source contributions.</p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__slideInUp" : ""}>
                       <Tab.Pane eventKey="first">
@@ -60,6 +47,7 @@ export const Projects = () => {
                             projects.map((project, index) => {
                               return (
                                 <ProjectCard
+                                  openWeb={() => window.open(project.url, "_blank")}
                                   key={index}
                                   {...project}
                                 />
