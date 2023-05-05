@@ -51,12 +51,10 @@ export const Contact = () => {
     // setFormDetails(formInitialDetails);
     // if (result.code === 200) {
 
-    let result;
     await setTimeout(() => {
       setButtonText("Send");
       setFormDetails(formInitialDetails);
       setStatus({ succes: true, message: 'Message sent successfully' })
-      result = { code: 200 };
     }, 5000);
 
   };
