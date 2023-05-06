@@ -2,6 +2,7 @@ import { useState } from "react";
 import Lottie from 'react-lottie';
 import { Container, Row, Col } from "react-bootstrap";
 import animationData from "../assets/support.json";
+import emailjs from '@emailjs/browser';
 import 'animate.css';
 
 import TrackVisibility from 'react-on-screen';
@@ -39,24 +40,24 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    // let response = await fetch("http://localhost:5000/contact", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json;charset=utf-8",
-    //   },
-    //   body: JSON.stringify(formDetails),
-    // });
-    // setButtonText("Send");
-    // let result = await response.json();
-    // setFormDetails(formInitialDetails);
-    // if (result.code === 200) {
 
-    await setTimeout(() => {
-      setButtonText("Send");
+    const templateParams = {
+      email: formDetails.email,
+      to_name: "Roshan Yadav",
+      from_name: formDetails.firstName + ' ' + formDetails.lastName + ' (' + formDetails.email + ')',
+      message: formDetails.message,
+    };
+
+    let res = await emailjs.send('service_27ts0ls', 'template_0pibll5', templateParams, 'AcurIRJfgbi9run-l')
+
+    if (res) {
+      setStatus({ status: 'success', message: 'Message Sent!' });
       setFormDetails(formInitialDetails);
-      setStatus({ succes: true, message: 'Message sent successfully' })
-    }, 5000);
-
+      setButtonText('Send');
+    } else {
+      setStatus({ status: 'error', message: 'Something went wrong, please try again later.' });
+      setButtonText('Send');
+    }
   };
 
   return (

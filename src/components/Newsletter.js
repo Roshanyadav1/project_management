@@ -15,6 +15,9 @@ export const Newsletter = ({ status, message, onValidated }) => {
 
     const templateParams = {
       email: email,
+      to_name: "Roshan Yadav",
+      from_name: email,
+      message: "Newsletter Subscription"
     };
     setMsg('sending');
     let res = await emailjs.send('service_27ts0ls', 'template_0pibll5', templateParams, 'AcurIRJfgbi9run-l')
