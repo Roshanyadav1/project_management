@@ -38,7 +38,7 @@ export const Projects = () => {
               {({ isVisible }) =>
                 <div>
                   <h2>Projects</h2>
-                  <p>Passionate about staying up-to-date with the latest developments in front-end technologies, and actively engaged in the development community through forums, blogs, and open source contributions.</p>
+                  <p>Passionate about staying up-to-date with the latest developments in front-end technologies, and actively engaged in the development community through forums, blogs, and open source and private contributions.</p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__slideInUp" : ""}>
                       <Tab.Pane eventKey="first">
