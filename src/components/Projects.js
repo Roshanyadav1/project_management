@@ -13,7 +13,7 @@ export const Projects = () => {
       title: "Singaji Central (collage management)",
       description: "In our college, we are creating an online system where a student can take Admission and all the functionality of our college can be automated by the application. ",
       imgUrl: projImg3,
-      url: 'https://admin.ssism.org/login'
+      url: 'https://central.ssism.org/login'
     },
     {
       title: "Bharosa Agri Tech",
