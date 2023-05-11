@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authServices } from "../services/authServices";
+import { spaceService } from "../services/spaceService";
 
 //Persisted in localsotorage
 import {
@@ -39,7 +39,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 const store = configureStore({
     reducer: {
         rootReducer: persistedReducer,
-        [authServices.reducerPath]: authServices.reducer,
+        [spaceService.reducerPath]: spaceService.reducer,
     },
 
     middleware: (getDefaultMiddleware) =>
@@ -48,7 +48,7 @@ const store = configureStore({
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         }).concat(
-            authServices.middleware,
+            spaceService.middleware,
         ),
 });
 

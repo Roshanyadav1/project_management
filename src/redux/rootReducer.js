@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import todo from "./slices/todo";
+import spaceData from "./slices/spaceData";
 import { enableMapSet } from 'immer';
 
 enableMapSet();
 
 const reducers = combineReducers({
-    todo,
+    spaceData,
 });
 
 export default reducers;

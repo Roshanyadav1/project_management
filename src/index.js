@@ -4,7 +4,7 @@ import App from './App';
 import './styles/grid.css';
 import './styles/flex.css';
 import './styles/variables.css';
-import './App.css';
+import './styles/card.css';
 
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store'

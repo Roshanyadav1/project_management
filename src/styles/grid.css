@@ -7,26 +7,37 @@ which means that each column will take up an equal amount of space */
     padding: 1rem;
 }
 
-/* `@media (min-width: 600px)` is a media query in CSS that targets devices with a minimum width of 600
-  pixels. The CSS rules inside this media query will only be applied to devices that meet this
-  condition. In this specific code, the media query is used to adjust the CSS properties of the `body`
-  element when the device width is at least 600 pixels. */
-@media (min-width: 600px) {
+
+/* Implementation should follow Mobile first design approach 
+▪ Mobile View: Page should have only one Column until 700 px. 
+We have provided the Visual designs for Mobile screen.  */
+
+@media (min-width: 700px) {
     body {
-        --gutter: .5em;
-        --font-size-scale: 1.2;
+        --gutter: 1em;
+        --font-size-scale: 1.5;
         --columns: 3;
     }
 }
 
-/* `@media (min-width: 1024px)` is a media query in CSS that targets devices with a minimum width of
-  1024 pixels. The CSS rules inside this media query will only be applied to devices that meet this
-  condition. In this specific code, the media query is used to adjust the CSS properties of the `body`
-  element when the device width is at least 1024 pixels. */
+
+/* ▪ Tablet View: Page should have 2 columns between 700 and 1024 px.
+ Design is provided for Desktop tile and that should be followed for this viewport.  */
 @media (min-width: 1024px) {
     body {
         --gutter: 1em;
         --font-size-scale: 1.5;
         --columns: 4;
+    }
+}
+
+
+/* ▪ Desktop View: Page should have 4 columns between 1024 and 1440 px. Beyond 1440px viewport,
+the content will be centered align with a max width of 1440. */
+@media (min-width: 1440px) {
+    body {
+        --gutter: 1em;
+        --font-size-scale: 1.5;
+        --columns: 5;
     }
 }

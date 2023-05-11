@@ -19,9 +19,6 @@
     flex-wrap: wrap;
 }
 
-._flex_item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 10px 0;
+._flex_column {
+    flex-direction: column;
 }

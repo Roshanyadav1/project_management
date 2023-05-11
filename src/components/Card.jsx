@@ -1,14 +1,28 @@
 import React from "react";
 
-const Card = ({ item, deteleTask }) => {
+const Card = ({ item }) => {
 
+  
     return (
-        <div className='glass_shades box_shadow'>
-            <h3 className='light_heading' >{item.name}</h3>
-            <div >
-                <p className='des_heading'> {item.description}</p>
-                <button onClick={() => deteleTask(item.id)} className="delete_task" >Delete task</button>
+        <div className='_card'>
+            <div className="_card_img">
+                <img src={''} alt="something" />
             </div>
+            <div className="_card_body">
+                <p className="_bold">{item.name}</p>
+                <p className="_bold">Mission ids : 
+                <span className="_light">
+                    
+                    {item.mission_id.map((id, index) => {
+                        return <span key={index}>{id}</span>
+                    })}
+                 </span>
+                </p>
+                <p className="_bold">Launch Year : <span className="_light">{item.launch_year}</span></p>
+                <p className="_bold">Successful Launch : <span className="_light">{item.launch_success}</span></p>
+                <p className="_bold">Successful Landing : <span className="_light">{item.launch_success}</span></p>
+                </div>
+            
         </div>
     )
 }

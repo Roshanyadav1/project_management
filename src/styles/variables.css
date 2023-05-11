@@ -1,12 +1,7 @@
 :root {
-    --body-color: #1f1f1f6b;
-    --primary-color: #0a0a0a;
-    --secondary-color: #9d1f1f;
-    --third-color: #fff;
-    --fourth-color: #000;
-
-    --box-shadow-color: rgba(0, 0, 0, 0.2);
-    --gradient-color: linear-gradient(#379de0, #9d1f1f);
+    --body-color: hsl(210, 8%, 95%);
+    --text-color: hsl(210, 8%, 25%);
+    --btn-background: hsl(113, 28%, 57%);
 
 
     /* grid system  */
