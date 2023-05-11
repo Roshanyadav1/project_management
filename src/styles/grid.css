@@ -1,43 +1,33 @@
-/* `._grid` is a CSS class that defines a grid container with a number of columns determined by the
-`--columns` variable. The `grid-template-columns` property sets the width of each column to `1fr`,
-which means that each column will take up an equal amount of space */
 ._grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 1rem;
     padding: 1rem;
 }
 
 
-/* Implementation should follow Mobile first design approach 
-▪ Mobile View: Page should have only one Column until 700 px. 
-We have provided the Visual designs for Mobile screen.  */
-
+/* Implementation should follow Mobile first design approach .  */
 @media (min-width: 700px) {
     body {
-        --gutter: 1em;
-        --font-size-scale: 1.5;
+        --font-size-scale: 0.5;
+        --columns: 2;
+    }
+}
+
+
+/* ▪ Tablet View: Page should have 2 columns between 700 and 1024 px.  */
+@media (min-width: 1024px) {
+    body {
+        --font-size-scale: 1;
         --columns: 3;
     }
 }
 
 
-/* ▪ Tablet View: Page should have 2 columns between 700 and 1024 px.
- Design is provided for Desktop tile and that should be followed for this viewport.  */
-@media (min-width: 1024px) {
-    body {
-        --gutter: 1em;
-        --font-size-scale: 1.5;
-        --columns: 4;
-    }
-}
-
-
-/* ▪ Desktop View: Page should have 4 columns between 1024 and 1440 px. Beyond 1440px viewport,
-the content will be centered align with a max width of 1440. */
+/* ▪ Desktop View: Page should have 4 columns between 1024 and 1440 px.   */
 @media (min-width: 1440px) {
     body {
-        --gutter: 1em;
         --font-size-scale: 1.5;
-        --columns: 5;
+        --columns: 4;
     }
 }
