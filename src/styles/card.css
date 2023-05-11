@@ -1,6 +1,6 @@
 ._card {
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: var(--body-color);
 }
 
 ._card_img {
@@ -35,16 +35,10 @@
     float: left;
 }
 
-@media (max-width: 700px) {
-    ._filter_section {
-        width: 100%;
-        float: none;
-    }
-}
-
 ._card_section {
     width: 80%;
 }
+
 
 
 ._center {
@@ -53,7 +47,6 @@
 
 ._filter_btns {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }

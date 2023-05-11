@@ -2,22 +2,31 @@
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     gap: 1rem;
-    padding: 1rem;
 }
 
 
 /* Implementation should follow Mobile first design approach .  */
 @media (min-width: 700px) {
-    body {
+    ._grid {
         --font-size-scale: 0.5;
         --columns: 2;
+    }
+
+    ._filter_section {
+        width: 100%;
+        float: none;
+    }
+
+    ._card_section {
+        width: 100%;
+        float: none;
     }
 }
 
 
 /* ▪ Tablet View: Page should have 2 columns between 700 and 1024 px.  */
 @media (min-width: 1024px) {
-    body {
+    ._grid {
         --font-size-scale: 1;
         --columns: 3;
     }
@@ -26,7 +35,7 @@
 
 /* ▪ Desktop View: Page should have 4 columns between 1024 and 1440 px.   */
 @media (min-width: 1440px) {
-    body {
+    ._grid {
         --font-size-scale: 1.5;
         --columns: 4;
     }

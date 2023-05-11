@@ -3,15 +3,12 @@
     --text-color: hsl(210, 8%, 25%);
     --btn-background: hsl(113, 28%, 57%);
 
-
     /* grid system  */
     --column: initial;
     --gutter: .3em;
-
 }
 
 body {
     margin: 1rem;
-    font-size: calc(90% * var(--font-size-scale, 1));
     background-color: var(--body-color);
 }

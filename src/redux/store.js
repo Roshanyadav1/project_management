@@ -16,22 +16,10 @@ import {
 import storage from "redux-persist/lib/storage";
 import reducers from "./rootReducer";
 
-
-import { encryptTransform } from 'redux-persist-transform-encrypt';
-
 const persistConfig = {
     key: "adsprint",
     version: 1,
     storage,
-    transforms: [
-        encryptTransform({
-            secretKey: 'hello',
-            onError: function (error) {
-                // Handle the error.
-                console.log(error);
-            },
-        }),
-    ],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
