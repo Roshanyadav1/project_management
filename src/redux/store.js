@@ -2,24 +2,19 @@ import { configureStore } from "@reduxjs/toolkit";
 import { spaceService } from "../services/spaceService";
 import reducers from "./rootReducer";
 
-const persistedReducer = persistReducer(reducers);
-
 const store = configureStore({
     reducer: {
-        rootReducer: persistedReducer,
+        reducers,
         [spaceService.reducerPath]: spaceService.reducer,
     },
 
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-            },
+            serializableCheck: false,
         }).concat(
             spaceService.middleware,
         ),
 });
 
-const persistor = persistStore(store);
 
-export { store, persistor };
+export { store };
