@@ -1,7 +1,14 @@
 :root {
+    /* colors  */
     --body-color: hsl(210, 8%, 95%);
+    --color-white: white;
     --text-color: hsl(210, 8%, 25%);
     --btn-background: hsl(113, 28%, 57%);
+    --card-heading: hsl(220, 71%, 52%);
+
+    /* width   */
+    --filter-width: 100%;
+    --card-width: 100%;
 
     /* grid system  */
     --column: initial;

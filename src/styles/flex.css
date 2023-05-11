@@ -22,3 +22,7 @@
 ._flex_column {
     flex-direction: column;
 }
+
+._center {
+    text-align: center;
+}

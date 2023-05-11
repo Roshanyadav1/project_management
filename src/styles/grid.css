@@ -13,13 +13,11 @@
     }
 
     ._filter_section {
-        width: 100%;
-        float: none;
+        --filter-width: 20%;
     }
 
     ._card_section {
-        width: 100%;
-        float: none;
+        --card-width: 80%;
     }
 }
 

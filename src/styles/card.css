@@ -1,3 +1,4 @@
+/* Card CSS */
 ._card {
     border-radius: 10px;
     background-color: var(--body-color);
@@ -16,8 +17,17 @@
 
 ._card_body {
     padding: 1rem;
+    background-color: var(--color-white);
 }
 
+._card_heading {
+    color: var(--card-heading);
+}
+
+/* card css end  */
+
+
+/* Filter CSS */
 ._bold {
     font-weight: bold;
 }
@@ -26,24 +36,14 @@
     font-weight: normal;
 }
 
-._body {
-    color: var(--text-color);
-}
-
 ._filter_section {
-    width: 20%;
-    float: left;
+    width: var(--filter-width);
 }
 
 ._card_section {
-    width: 80%;
+    width: var(--card-width);
 }
 
-
-
-._center {
-    text-align: center;
-}
 
 ._filter_btns {
     display: flex;
@@ -61,3 +61,5 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+/* Filter CSS end */
